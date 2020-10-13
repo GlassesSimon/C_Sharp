@@ -1,0 +1,13 @@
+C:\Users\z0107\RiderProjects\Task2\Task2\bin\Debug\netcoreapp3.1\Task2.exe
+C:\Users\z0107\RiderProjects\Task2\Task2\bin\Debug\netcoreapp3.1\Task2.deps.json
+C:\Users\z0107\RiderProjects\Task2\Task2\bin\Debug\netcoreapp3.1\Task2.runtimeconfig.json
+C:\Users\z0107\RiderProjects\Task2\Task2\bin\Debug\netcoreapp3.1\Task2.runtimeconfig.dev.json
+C:\Users\z0107\RiderProjects\Task2\Task2\bin\Debug\netcoreapp3.1\Task2.dll
+C:\Users\z0107\RiderProjects\Task2\Task2\bin\Debug\netcoreapp3.1\Task2.pdb
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.csprojAssemblyReference.cache
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.AssemblyInfoInputs.cache
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.AssemblyInfo.cs
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.csproj.CoreCompileInputs.cache
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.dll
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.pdb
+C:\Users\z0107\RiderProjects\Task2\Task2\obj\Debug\netcoreapp3.1\Task2.genruntimeconfig.cache
