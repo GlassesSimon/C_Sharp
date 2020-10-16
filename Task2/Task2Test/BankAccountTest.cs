@@ -6,6 +6,7 @@ namespace Task2Test
 {
     public class BankAccountTest
     {
+#warning название метода, можно даже разделить на два теста
         [Test]
         public void Tests()
         {

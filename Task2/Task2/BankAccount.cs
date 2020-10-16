@@ -14,6 +14,7 @@
             Balance += amount;
         }
 
+        #warning что будет если Balance < amount? 
         public void Sub(double amount)
         {
             Balance -= amount;

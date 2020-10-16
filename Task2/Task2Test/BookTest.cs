@@ -6,6 +6,7 @@ namespace Task2Test
 {
     public class BookTest
     {
+        #warning название метода
         [Test]
         public void Tests()
         {

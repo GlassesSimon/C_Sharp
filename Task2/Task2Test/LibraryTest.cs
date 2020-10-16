@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
 using Task2;
@@ -7,6 +8,7 @@ namespace Task2Test
 {
     public class LibraryTest
     {
+        #warning название метода
         [Test]
         public void Tests()
         {
@@ -21,6 +23,11 @@ namespace Task2Test
             myLibrary.DeleteBook(1);
             myLibrary.Stock.Count.Should().Be(0);
             myLibrary.Stock.FirstOrDefault(b => b.Id == 1).Should().Be(null);
+
+                /*
+                 try/catch в тестах не надо писать; лучше написать вот. сегодня на лекции будет, что за Action такой
+            Action act = () => myLibrary.DeleteBook(2);
+            act.Should().Throw<MyException>();*/
 
             try
             {
