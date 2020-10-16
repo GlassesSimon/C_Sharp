@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Task2
@@ -12,7 +13,7 @@ namespace Task2
             var book = Stock.FirstOrDefault(b => b.Id == id);
             if (book == null)
             {
-                throw new MyException("No book with this id.");
+                throw new Exception("No book with this id.\n");
             }
 
             Stock.Remove(book);

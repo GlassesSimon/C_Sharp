@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1P6TKgoWoa9RyrmYW5FsErh5Jw/JaJgM2Aw/9DYVPLuf214w2XBCMfqeHktyhnfW/ItrDJTcscIhRxMx2EB1Sg==",
+  "dgSpecHash": "fTwknNyM50XHDZ/4aKocMnTTcnWljCLdAl7Xa6okzGmBSIppJc0HbQy3GOU8N1Fe7tXBMZZYtRUiJX9TY7ci0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\z0107\\RiderProjects\\Task2\\Task2Test\\Task2Test.csproj",
+  "projectFilePath": "C:\\Users\\z0107\\RiderProjects\\C_Sharp\\Task2\\Task2Test\\Task2Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\z0107\\.nuget\\packages\\fluentassertions\\5.10.3\\fluentassertions.5.10.3.nupkg.sha512",
     "C:\\Users\\z0107\\.nuget\\packages\\microsoft.codecoverage\\16.4.0\\microsoft.codecoverage.16.4.0.nupkg.sha512",

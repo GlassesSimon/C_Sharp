@@ -25,14 +25,14 @@ namespace Task2
                 var book = ShopLibrary.Stock.FirstOrDefault(b => b.Id == id);
                 if (book == null)
                 {
-                    throw new MyException("No book with this id.");
+                    throw new Exception("No book with this id.\n");
                 }
                 ShopBankAccount.Add(book.Price);
                 ShopLibrary.DeleteBook(id);
             }
-            catch (MyException exception)
+            catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);
+                Console.Write(exception.Message);
             }
             
             var counter = 0;
@@ -64,7 +64,14 @@ namespace Task2
 
             if (counter < ShopBankAccount.Balance)
             {
-                ShopBankAccount.Sub(counter);
+                try
+                {
+                    ShopBankAccount.Sub(counter);
+                }
+                catch (Exception exception)
+                {
+                    Console.Write(exception.Message);
+                }
 
                 foreach (var book in delivery)
                 {
@@ -79,18 +86,24 @@ namespace Task2
             {
                 if (!book.Novelty)
                 {
-                    #warning тут явно напрашивается использование switch
-                    if (book.Genre == "fiction")
+                    try
                     {
-                        book.ReducePrice(3);
+                        switch (book.Genre)
+                        {
+                            case "fiction":
+                                book.ReducePrice(3);
+                                break;
+                            case "adventures":
+                                book.ReducePrice(7);
+                                break;
+                            case "encyclopedia":
+                                book.ReducePrice(10);
+                                break;
+                        }
                     }
-                    else if (book.Genre == "adventures")
+                    catch (Exception exception)
                     {
-                        book.ReducePrice(7);
-                    }
-                    else if (book.Genre == "encyclopedia")
-                    {
-                        book.ReducePrice(10);
+                        Console.Write(exception.Message);
                     }
                 }
             }
@@ -102,18 +115,24 @@ namespace Task2
             {
                 if (!book.Novelty)
                 {
-#warning тут явно напрашивается использование switch
-                    if (book.Genre == "fiction")
+                    try
                     {
-                        book.RaisePrice(3);
+                        switch (book.Genre)
+                        {
+                            case "fiction":
+                                book.RaisePrice(3);
+                                break;
+                            case "adventures":
+                                book.RaisePrice(7);
+                                break;
+                            case "encyclopedia":
+                                book.RaisePrice(10);
+                                break;
+                        }
                     }
-                    else if (book.Genre == "adventures")
+                    catch (Exception exception)
                     {
-                        book.RaisePrice(7);
-                    }
-                    else if (book.Genre == "encyclopedia")
-                    {
-                        book.RaisePrice(10);
+                        Console.Write(exception.Message);
                     }
                 }
             }

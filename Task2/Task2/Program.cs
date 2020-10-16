@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            BookShop myBookShop = new BookShop(BookShop.StartingCapacity);
+            var myBookShop = new BookShop(BookShop.StartingCapacity);
         }
     }
 }

@@ -1,4 +1,13 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=01862b32_002Dea8f_002D4816_002Daf38_002D573f3383b02f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\z0107\RiderProjects\Task2\Task2Test" Presentation="&amp;lt;Task2Test&amp;gt;" /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=01862b32_002Dea8f_002D4816_002Daf38_002D573f3383b02f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BF8D2D0C-FB2B-46FC-B5AB-69529EA76F33::.NETCoreApp,Version=v3.1::Task2Test.BankAccountTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BF8D2D0C-FB2B-46FC-B5AB-69529EA76F33::.NETCoreApp,Version=v3.1::Task2Test.BookTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BF8D2D0C-FB2B-46FC-B5AB-69529EA76F33::.NETCoreApp,Version=v3.1::Task2Test.LibraryTest.DeleteBookTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BF8D2D0C-FB2B-46FC-B5AB-69529EA76F33::.NETCoreApp,Version=v3.1::Task2Test.LibraryTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BF8D2D0C-FB2B-46FC-B5AB-69529EA76F33::.NETCoreApp,Version=v3.1::Task2Test.BookShopTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a6af2f8c_002D5841_002D4865_002Daf5e_002D9576e5c88234/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SuccessfulBookSoldTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\z0107\RiderProjects\C_Sharp\Task2\Task2Test" Presentation="&amp;lt;Task2Test&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,4 +1,6 @@
-﻿namespace Task2
+﻿using System;
+
+namespace Task2
 {
     public class BankAccount
     {
@@ -13,10 +15,14 @@
         {
             Balance += amount;
         }
-
-        #warning что будет если Balance < amount? 
+        
         public void Sub(double amount)
         {
+            if (Balance < amount)
+            {
+                throw new Exception("Not enough money.\n");
+            } 
+            
             Balance -= amount;
         }
     }

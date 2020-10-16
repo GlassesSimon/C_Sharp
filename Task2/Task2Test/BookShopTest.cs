@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
@@ -7,89 +8,81 @@ using Task2;
 
 namespace Task2Test
 {
-    #warning Ангелина, очень плохие названия тестов) название теста должно отражать суть, что в тесте проверяется 
     public class BookShopTest
     {
         [Test]
-        public void Test1()
+        public void SuccessfulDeliveryTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            #warning создаёшь инстанс Library, а переменная называется delivery. Непонятно :) 
-            #warning честно говоря, не понимаю, зачем ты создаёшь тут инстанс Library, чтобы туда добавить книг и потом их передать в delivery
-            #warning можно же просто создать List<Book> и его передать в delivery
-            var delivery = new Library();
-            delivery.AddBook(new Book(1, 350, "fiction", false));
-            delivery.AddBook(new Book(2, 450, "encyclopedia", true));
-            myBookShop.Delivery(delivery.Stock);
+            var delivery = new List<Book> {new Book(1, "fiction", 350, false), new Book(2, "encyclopedia", 450, true)};
+            myBookShop.Delivery(delivery);
             
             myBookShop.ShopBankAccount.Balance.Should().Be(99944);
             myBookShop.ShopLibrary.Stock.Count.Should().Be(2);
-
-            #warning вот добавление следующих строчек ведёт к тому, что этот тест надо разбивать на 2, т.к. у тебя рассматривается 2 кейса: 
-            #warning первый - приём доставки добавляет книги в библиотеку и вычитает сумму за доставку
-            #warning а вот этот уже второй: если у нас нет денег, чтобы принять доставку, то библиотека магазина остаётся прежней
-            delivery.AddBook(new Book(3, 5000000, "adventures", true));
-            myBookShop.Delivery(delivery.Stock);
-            myBookShop.ShopBankAccount.Balance.Should().Be(99944);
-            myBookShop.ShopLibrary.Stock.Count.Should().Be(2);
+        }        
+        
+        [Test]
+        public void UnsuccessfulDeliveryTest()
+        {
+            var myBookShop = new BookShop(BookShop.StartingCapacity);
+            var delivery = new List<Book> {new Book(1, "fiction", 5000000, false)};
+            myBookShop.Delivery(delivery);
+            myBookShop.ShopBankAccount.Balance.Should().Be(100000);
+            myBookShop.ShopLibrary.Stock.Count.Should().Be(0);
         }
 
         [Test]
-        public void Test2()
+        public void UnsuccessfulBookSoldTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            var delivery = new Library();
-            delivery.AddBook(new Book(1, 350, "fiction", false));
-            delivery.AddBook(new Book(2, 450, "encyclopedia", true));
-            myBookShop.Delivery(delivery.Stock);
-            
-            try
-            {
-                myBookShop.BookSold(3);
-            }
-            catch (MyException exception)
-            {
-                exception.Message.Should().Be("No book with this id.");
-            }
-            
-            using (var sw = new StringWriter())
-            {
-                Console.SetOut(sw);
-                myBookShop.BookSold(2);
-                sw.ToString().Should().Be("Need more books.\n");
-            }
-            myBookShop.ShopLibrary.Stock.FirstOrDefault(b => b.Id == 2).Should().Be(null);
-            myBookShop.ShopBankAccount.Balance.Should().Be(100394);
-            
-            delivery.DeleteBook(1);
-            myBookShop.Delivery(delivery.Stock);
-            
-            #warning все обычно стараются бороться с копипастой :) можно вынести эту проверку в метод, который будет принимать myBookShop и id книги для продажи
-            #warning ну и назвать метод красиво
-            using (var sw = new StringWriter())
-            {
-                Console.SetOut(sw);
-                myBookShop.BookSold(1);
-                sw.ToString().Should().Be("Need more books.\n");
-            }
+            var delivery = new List<Book> {new Book(1, "fiction", 350, false), new Book(2, "encyclopedia", 450, true)};
+            myBookShop.Delivery(delivery);
+            DeliveryOrderTest(myBookShop, 3, "No book with this id.\nNeed more books.\n");
         }
         
         [Test]
-        public void Test3()
+        public void SuccessfulBookSoldTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            var delivery = new Library();
-            delivery.AddBook(new Book(2, 450, "encyclopedia", true));
-            delivery.AddBook(new Book(1, 350, "fiction", false));
-            delivery.AddBook(new Book(3, 500, "adventures", false));
-            delivery.AddBook(new Book(4, 450, "encyclopedia", false));
-            myBookShop.Delivery(delivery.Stock);
+            var delivery = new List<Book> {new Book(1, "fiction", 350, false), new Book(2, "encyclopedia", 450, true), new Book(3, "fiction", 500, false)};
+            myBookShop.Delivery(delivery);
+            
+            DeliveryOrderTest(myBookShop, 1, "Need more books.\n");
+            myBookShop.ShopLibrary.Stock.FirstOrDefault(b => b.Id == 1).Should().Be(null);
+            myBookShop.ShopBankAccount.Balance.Should().Be(100259);
+
+            DeliveryOrderTest(myBookShop, 3, "Need more books.\n");
+            DeliveryOrderTest(myBookShop,  2, "Need more books.\n");
+        }
+
+        private static void DeliveryOrderTest(BookShop myBookShop, int id, string message)
+        {
+            using var sw = new StringWriter();
+            Console.SetOut(sw);
+            myBookShop.BookSold(id);
+            sw.ToString().Should().Be(message);
+        }
+
+        [Test]
+        public void SaleByGenreTest()
+        {
+            var myBookShop = new BookShop(BookShop.StartingCapacity);
+            var delivery = new List<Book> {new Book(1, "encyclopedia", 450, true), new Book(2, "fiction", 350, false), new Book(3, "adventures", 500, false), new Book(4, "encyclopedia", 450, false)};
+            myBookShop.Delivery(delivery);
             myBookShop.SaleByGenre();
             myBookShop.ShopLibrary.Stock[0].Price.Should().Be(450);
             myBookShop.ShopLibrary.Stock[1].Price.Should().Be(339.5);
             myBookShop.ShopLibrary.Stock[2].Price.Should().Be(465);
             myBookShop.ShopLibrary.Stock[3].Price.Should().Be(405);
-            
+        }        
+        
+        [Test]
+        public void CancelSaleByGenreTest()
+        {
+            var myBookShop = new BookShop(BookShop.StartingCapacity);
+            var delivery = new List<Book> {new Book(1, "encyclopedia", 450, true), new Book(2, "fiction", 339.5, false), new Book(3, "adventures", 465, false), new Book(4, "encyclopedia", 405, false)};
+            myBookShop.Delivery(delivery);
+
             myBookShop.CancelSaleByGenre();
             myBookShop.ShopLibrary.Stock[0].Price.Should().Be(450);
             myBookShop.ShopLibrary.Stock[1].Price.Should().Be(350);
