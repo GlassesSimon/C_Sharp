@@ -18,7 +18,7 @@ namespace Task2
             Capacity = capacity;
         }
 
-        public void BookSold(int id) 
+        public void SellBook(int id) 
         {
             try
             {
@@ -35,14 +35,7 @@ namespace Task2
                 Console.Write(exception.Message);
             }
             
-            var counter = 0;
-            foreach (var book in ShopLibrary.Stock)
-            {
-                if (!book.Novelty)
-                {
-                    counter++;
-                }
-            }
+            var counter = ShopLibrary.Stock.Count(book => !book.Novelty);
 
             if (ShopLibrary.Stock.Count == 0 || counter / ShopLibrary.Stock.Count * 100 >= 75)
             {
@@ -54,13 +47,9 @@ namespace Task2
             }
         }
 
-        public void Delivery(List<Book> delivery)
+        public void ReceiveDelivery(List<Book> delivery)
         {
-            double counter = 0;
-            foreach (var book in delivery)
-            {
-                counter += book.Price / 100 * 7;
-            }
+            var counter = delivery.Sum(book => book.Price / 100 * 7);
 
             if (counter < ShopBankAccount.Balance)
             {
@@ -82,58 +71,52 @@ namespace Task2
 
         public void SaleByGenre()
         {
-            foreach (var book in ShopLibrary.Stock)
+            foreach (var book in ShopLibrary.Stock.Where(book => !book.Novelty))
             {
-                if (!book.Novelty)
+                try
                 {
-                    try
+                    switch (book.Genre)
                     {
-                        switch (book.Genre)
-                        {
-                            case "fiction":
-                                book.ReducePrice(3);
-                                break;
-                            case "adventures":
-                                book.ReducePrice(7);
-                                break;
-                            case "encyclopedia":
-                                book.ReducePrice(10);
-                                break;
-                        }
+                        case "fiction":
+                            book.ReducePrice(3);
+                            break;
+                        case "adventures":
+                            book.ReducePrice(7);
+                            break;
+                        case "encyclopedia":
+                            book.ReducePrice(10);
+                            break;
                     }
-                    catch (Exception exception)
-                    {
-                        Console.Write(exception.Message);
-                    }
+                }
+                catch (Exception exception)
+                {
+                    Console.Write(exception.Message);
                 }
             }
         }
         
         public void CancelSaleByGenre()
         {
-            foreach (var book in ShopLibrary.Stock)
+            foreach (var book in ShopLibrary.Stock.Where(book => !book.Novelty))
             {
-                if (!book.Novelty)
+                try
                 {
-                    try
+                    switch (book.Genre)
                     {
-                        switch (book.Genre)
-                        {
-                            case "fiction":
-                                book.RaisePrice(3);
-                                break;
-                            case "adventures":
-                                book.RaisePrice(7);
-                                break;
-                            case "encyclopedia":
-                                book.RaisePrice(10);
-                                break;
-                        }
+                        case "fiction":
+                            book.RaisePrice(3);
+                            break;
+                        case "adventures":
+                            book.RaisePrice(7);
+                            break;
+                        case "encyclopedia":
+                            book.RaisePrice(10);
+                            break;
                     }
-                    catch (Exception exception)
-                    {
-                        Console.Write(exception.Message);
-                    }
+                }
+                catch (Exception exception)
+                {
+                    Console.Write(exception.Message);
                 }
             }
         }

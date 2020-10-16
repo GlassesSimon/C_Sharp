@@ -21,15 +21,21 @@ namespace Task2Test
         }
         
         [Test]
-        public void DeleteBookTest()
+        public void SuccessfulDeleteBookTest()
         {
             var myLibrary = new Library();
             myLibrary.AddBook(new Book(1, "fiction", 350,true));
             myLibrary.DeleteBook(1);
             myLibrary.Stock.Count.Should().Be(0);
             myLibrary.Stock.FirstOrDefault(b => b.Id == 1).Should().Be(null);
+        }        
 
-            Action act = () => myLibrary.DeleteBook(2);
+        [Test]
+        public void ShouldNotDeleteTheBookIfThereIsNoBookWithThisId()
+        {
+            var myLibrary = new Library();
+
+            Action act = () => myLibrary.DeleteBook(1);
             act.Should().Throw<Exception>().WithMessage("No book with this id.\n");
         }
     }

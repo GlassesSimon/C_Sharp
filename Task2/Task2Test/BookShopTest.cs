@@ -15,7 +15,7 @@ namespace Task2Test
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
             var delivery = new List<Book> {new Book(1, "fiction", 350, false), new Book(2, "encyclopedia", 450, true)};
-            myBookShop.Delivery(delivery);
+            myBookShop.ReceiveDelivery(delivery);
             
             myBookShop.ShopBankAccount.Balance.Should().Be(99944);
             myBookShop.ShopLibrary.Stock.Count.Should().Be(2);
@@ -26,7 +26,7 @@ namespace Task2Test
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
             var delivery = new List<Book> {new Book(1, "fiction", 5000000, false)};
-            myBookShop.Delivery(delivery);
+            myBookShop.ReceiveDelivery(delivery);
             myBookShop.ShopBankAccount.Balance.Should().Be(100000);
             myBookShop.ShopLibrary.Stock.Count.Should().Be(0);
         }
@@ -36,7 +36,7 @@ namespace Task2Test
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
             var delivery = new List<Book> {new Book(1, "fiction", 350, false), new Book(2, "encyclopedia", 450, true)};
-            myBookShop.Delivery(delivery);
+            myBookShop.ReceiveDelivery(delivery);
             DeliveryOrderTest(myBookShop, 3, "No book with this id.\nNeed more books.\n");
         }
         
@@ -45,7 +45,7 @@ namespace Task2Test
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
             var delivery = new List<Book> {new Book(1, "fiction", 350, false), new Book(2, "encyclopedia", 450, true), new Book(3, "fiction", 500, false)};
-            myBookShop.Delivery(delivery);
+            myBookShop.ReceiveDelivery(delivery);
             
             DeliveryOrderTest(myBookShop, 1, "Need more books.\n");
             myBookShop.ShopLibrary.Stock.FirstOrDefault(b => b.Id == 1).Should().Be(null);
@@ -59,7 +59,7 @@ namespace Task2Test
         {
             using var sw = new StringWriter();
             Console.SetOut(sw);
-            myBookShop.BookSold(id);
+            myBookShop.SellBook(id);
             sw.ToString().Should().Be(message);
         }
 
@@ -68,7 +68,7 @@ namespace Task2Test
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
             var delivery = new List<Book> {new Book(1, "encyclopedia", 450, true), new Book(2, "fiction", 350, false), new Book(3, "adventures", 500, false), new Book(4, "encyclopedia", 450, false)};
-            myBookShop.Delivery(delivery);
+            myBookShop.ReceiveDelivery(delivery);
             myBookShop.SaleByGenre();
             myBookShop.ShopLibrary.Stock[0].Price.Should().Be(450);
             myBookShop.ShopLibrary.Stock[1].Price.Should().Be(339.5);
@@ -81,7 +81,7 @@ namespace Task2Test
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
             var delivery = new List<Book> {new Book(1, "encyclopedia", 450, true), new Book(2, "fiction", 339.5, false), new Book(3, "adventures", 465, false), new Book(4, "encyclopedia", 405, false)};
-            myBookShop.Delivery(delivery);
+            myBookShop.ReceiveDelivery(delivery);
 
             myBookShop.CancelSaleByGenre();
             myBookShop.ShopLibrary.Stock[0].Price.Should().Be(450);
