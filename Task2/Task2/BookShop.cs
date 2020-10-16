@@ -79,6 +79,7 @@ namespace Task2
             {
                 if (!book.Novelty)
                 {
+                    #warning тут явно напрашивается использование switch
                     if (book.Genre == "fiction")
                     {
                         book.ReducePrice(3);
@@ -101,6 +102,7 @@ namespace Task2
             {
                 if (!book.Novelty)
                 {
+#warning тут явно напрашивается использование switch
                     if (book.Genre == "fiction")
                     {
                         book.RaisePrice(3);
