@@ -57,10 +57,12 @@ namespace Task2Test
 
         private static void DeliveryOrderTest(BookShop myBookShop, int id, string message)
         {
-            using var sw = new StringWriter();
-            Console.SetOut(sw);
-            myBookShop.SellBook(id);
-            sw.ToString().Should().Be(message);
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                myBookShop.SellBook(id);
+                sw.ToString().Should().Be(message);
+            }
         }
 
         [Test]
