@@ -7,7 +7,7 @@ namespace Task2Infrastructure.EntityFramework
 {
     public class BooksContext : DbContext
     {
-        public const string DefaultSchemaName = "Books";
+        public const string DefaultSchemaName = "public";
 
         public BooksContext(DbContextOptions options) : base(options)
         {
@@ -21,8 +21,9 @@ namespace Task2Infrastructure.EntityFramework
 
         public async Task<List<Book>> GetBooks()
         {
-            return await Set<Book>()
-                .ToListAsync();
+            var books = Set<Book>();
+            var listBooks = books.ToListAsync();
+            return await listBooks;
         }
 
         public void AddBook(Book book)

@@ -1,23 +1,25 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Task2Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class AddBook : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "Books");
+                name: "public");
 
             migrationBuilder.CreateTable(
                 name: "Book",
-                schema: "Books",
+                schema: "public",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Genre = table.Column<string>(nullable: false),
                     Price = table.Column<double>(nullable: false),
-                    Novelty = table.Column<bool>(nullable: true)
+                    Novelty = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,7 +31,7 @@ namespace Task2Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Book",
-                schema: "Books");
+                schema: "public");
         }
     }
 }
