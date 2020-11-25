@@ -22,7 +22,8 @@ namespace Task2WebApplication.Controllers
             await using var context = _dbContextFactory.GetContext();
             return await context.GetBooks();
         }
-
+        
+        [Route("add")]
         [HttpPost]
         public async Task AddBook([FromBody] Book book)
         {
