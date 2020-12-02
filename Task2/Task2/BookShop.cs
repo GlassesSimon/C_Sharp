@@ -34,17 +34,26 @@ namespace Task2
             {
                 Console.Write(exception.Message);
             }
-            
+
+            if (NeedDelivery())
+            {
+                DeliveryOrder();
+            }
+        }
+        
+        public bool NeedDelivery() 
+        {
             var counter = ShopLibrary.Stock.Count(book => !book.Novelty);
 
             if (ShopLibrary.Stock.Count == 0 || counter / ShopLibrary.Stock.Count * 100 >= 75)
             {
-                DeliveryOrder();
+                return true;
             }
             else if (ShopLibrary.Stock.Count <= Capacity / 10)
             {
-                DeliveryOrder();
+                return true;
             }
+            return false;
         }
 
         public void ReceiveDelivery(List<Book> delivery)

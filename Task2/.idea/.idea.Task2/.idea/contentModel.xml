@@ -77,9 +77,17 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Bootstrap" t="Include">
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
         <e p="Controllers" t="Include">
           <e p="BooksController.cs" t="Include" />
           <e p="ValuesController.cs" t="Include" />
+        </e>
+        <e p="Jobs" t="Include">
+          <e p="BookJob.cs" t="Include" />
+          <e p="InjectableJobFactory.cs" t="Include" />
+          <e p="QuartzHostedService.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -91,6 +99,10 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="IServiceProxy.cs" t="Include" />
+          <e p="ServiceProxy.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Task2WebApplication.csproj" t="IncludeRecursive" />

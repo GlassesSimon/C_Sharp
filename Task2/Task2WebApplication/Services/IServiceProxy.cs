@@ -5,6 +5,6 @@ namespace Task2WebApplication.Services
 {
     public interface IServiceProxy
     {
-        List<Book> GetData();
+        void GetAndSaveBooks();
     }
 }
