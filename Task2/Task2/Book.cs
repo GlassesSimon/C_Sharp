@@ -7,6 +7,8 @@ namespace Task2
         public int Id { get; }
         public string Genre { get; }
         public double Price { get; private set; }
+        #warning признак "является ли новинкой" не постоянный у каждой книги, значение этого поля может меняться
+        #warning а он у тебя read-only; добавить private set; почему private - написал Диме :) 
         public bool Novelty { get; }
 
         public Book(int id, string genre, double price, bool novelty)

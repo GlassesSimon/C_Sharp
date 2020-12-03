@@ -22,9 +22,15 @@ namespace Task2WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+#warning ни в appsettings.json, ни в appsettings.Development.json, ни в launchSettings.json у тебя нет секции со строкой подключения
+#warning да, из-за этого у тебя в BooksContextTimeFactory просто берётся дефолтная строка, которая смотрит на локальную базу 
+#warning но в случае деплоя на какой-нибудь сервер у тебя явно должен быть прописан ConnectionString до какой-то нормальной базы, не локальной
+#warning не всегда (почти никогда) у тебя не будет базы на том же сервере, на котором запускается приложение
             services.AddSingleton(isp => new BooksContextDbContextFactory(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<HttpClient>();
             services.AddSingleton<IServiceProxy, ServiceProxy>();
+            
+            #warning нет работы с rabbit mq, нет второго приложения
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

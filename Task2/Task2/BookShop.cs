@@ -49,6 +49,7 @@ namespace Task2
             {
                 return true;
             }
+            #warning решарпер подсказывает, что тут else не нужен
             else if (ShopLibrary.Stock.Count <= Capacity / 10)
             {
                 return true;

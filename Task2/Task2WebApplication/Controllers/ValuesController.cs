@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Task2WebApplication.Controllers
 {
+#warning целый контроллер ненужного кода
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase

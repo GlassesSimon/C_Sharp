@@ -7,6 +7,7 @@ namespace Task2Infrastructure.EntityFramework
     [UsedImplicitly]
     public sealed class BooksContextDesignTimeFactory : IDesignTimeDbContextFactory<BooksContext>
     {
+        #warning зачем\почему этот закоменченый код тут? закоменченый код засоряет код, а иногда вызывает вопросы, зачем он тут. 
         //private const string DefaultConnectionString = "Data Source=127.0.0.1;Initial Catalog=BookShop;User Id=postgres; Password=NSU;";
         private const string DefaultConnectionString = "Host=localhost;Username=postgres;Password=NSU;Database=BookShop;";
         public static DbContextOptions<BooksContext> GetSqlServerOptions([CanBeNull]string connectionString)

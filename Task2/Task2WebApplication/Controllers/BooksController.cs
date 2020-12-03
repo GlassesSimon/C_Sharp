@@ -23,6 +23,8 @@ namespace Task2WebApplication.Controllers
             return await context.GetBooks();
         }
         
+#warning если следовать REST идеологии, то тут не нужно указывать путь /add. 
+#warning post /api/book как бы предполагает, что это добавление книги
         [Route("add")]
         [HttpPost]
         public async Task AddBook([FromBody] Book book)

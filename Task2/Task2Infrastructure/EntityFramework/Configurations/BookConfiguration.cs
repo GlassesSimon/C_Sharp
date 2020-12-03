@@ -14,10 +14,10 @@ namespace Task2Infrastructure.EntityFramework.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
+            #warning well done :) 
             builder.Property(x => x.Genre).IsRequired();
             builder.Property(x => x.Price).IsRequired();
             builder.Property(x => x.Novelty).IsRequired();
-
         }
     }
 }
