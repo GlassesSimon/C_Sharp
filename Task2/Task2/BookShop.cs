@@ -49,11 +49,7 @@ namespace Task2
             {
                 return true;
             }
-            else if (ShopLibrary.Stock.Count <= Capacity / 10)
-            {
-                return true;
-            }
-            return false;
+            return ShopLibrary.Stock.Count <= Capacity / 10;
         }
 
         public void ReceiveDelivery(List<Book> delivery)

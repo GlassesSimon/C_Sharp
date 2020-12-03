@@ -15,9 +15,9 @@ namespace Task2Infrastructure.EntityFramework.Configurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
             builder.Property(x => x.Genre).IsRequired();
+            builder.Property(x => x.Genre).HasMaxLength(255);
             builder.Property(x => x.Price).IsRequired();
             builder.Property(x => x.Novelty).IsRequired();
-
         }
     }
 }

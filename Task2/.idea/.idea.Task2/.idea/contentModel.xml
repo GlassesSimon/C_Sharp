@@ -28,7 +28,6 @@
             </e>
           </e>
         </e>
-        <e p="Program.cs" t="Include" />
         <e p="Task2.csproj" t="IncludeRecursive" />
       </e>
       <e p="Task2.sln" t="IncludeFlat" />
@@ -82,7 +81,6 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="BooksController.cs" t="Include" />
-          <e p="ValuesController.cs" t="Include" />
         </e>
         <e p="Jobs" t="Include">
           <e p="BookJob.cs" t="Include" />

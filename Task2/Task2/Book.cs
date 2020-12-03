@@ -7,7 +7,7 @@ namespace Task2
         public int Id { get; }
         public string Genre { get; }
         public double Price { get; private set; }
-        public bool Novelty { get; }
+        public bool Novelty { get; private set; }
 
         public Book(int id, string genre, double price, bool novelty)
         {

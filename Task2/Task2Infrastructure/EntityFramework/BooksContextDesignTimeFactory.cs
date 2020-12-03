@@ -7,7 +7,6 @@ namespace Task2Infrastructure.EntityFramework
     [UsedImplicitly]
     public sealed class BooksContextDesignTimeFactory : IDesignTimeDbContextFactory<BooksContext>
     {
-        //private const string DefaultConnectionString = "Data Source=127.0.0.1;Initial Catalog=BookShop;User Id=postgres; Password=NSU;";
         private const string DefaultConnectionString = "Host=localhost;Username=postgres;Password=NSU;Database=BookShop;";
         public static DbContextOptions<BooksContext> GetSqlServerOptions([CanBeNull]string connectionString)
         {
