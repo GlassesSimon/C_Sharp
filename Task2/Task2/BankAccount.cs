@@ -1,9 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace Task2
 {
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class BankAccount
     {
+        public int Id { get; }
         public double Balance { get; private set; }
 
         public BankAccount(double balance)

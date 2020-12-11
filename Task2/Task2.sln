@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2Infrastructure", "Task
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2WebApplication", "Task2WebApplication\Task2WebApplication.csproj", "{AB300753-A60B-4E80-8871-AE80E6A8C7D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationServices", "ApplicationServices\ApplicationServices.csproj", "{5D013570-B099-489B-8973-B689F95020C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{AB300753-A60B-4E80-8871-AE80E6A8C7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB300753-A60B-4E80-8871-AE80E6A8C7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB300753-A60B-4E80-8871-AE80E6A8C7D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D013570-B099-489B-8973-B689F95020C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D013570-B099-489B-8973-B689F95020C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D013570-B099-489B-8973-B689F95020C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D013570-B099-489B-8973-B689F95020C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

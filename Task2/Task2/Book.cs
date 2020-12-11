@@ -1,20 +1,24 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace Task2
 {
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Book
     {
-        public int Id { get; }
-        public string Genre { get; }
+        public int Id { get; private set; }
+        public string Title { get; private set; }
+        public string Genre { get; private set; }
         public double Price { get; private set; }
-        public bool Novelty { get; private set; }
+        public bool IsNew { get; private set; }
+        public DateTime DateDelivery { get; private set; }
 
-        public Book(int id, string genre, double price, bool novelty)
+        public Book(int id, string genre, double price, bool isNew)
         {
             Id = id;
             Genre = genre;
             Price = price;
-            Novelty = novelty;
+            IsNew = isNew;
         }
         
         public void RaisePrice(int percent)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using NUnit.Framework;
 using FluentAssertions;
+using NUnit.Framework;
 using Task2;
 
 namespace Task2Test
@@ -17,7 +17,7 @@ namespace Task2Test
             myLibrary.Stock[0].Id.Should().Be(1);
             myLibrary.Stock[0].Price.Should().Be(350);
             myLibrary.Stock[0].Genre.Should().Be("fiction");
-            myLibrary.Stock[0].Novelty.Should().Be(true);
+            myLibrary.Stock[0].IsNew.Should().Be(true);
         }
         
         [Test]

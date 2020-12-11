@@ -23,7 +23,6 @@ namespace Task2WebApplication.Controllers
             return await context.GetBooks();
         }
         
-        [Route("add")]
         [HttpPost]
         public async Task AddBook([FromBody] Book book)
         {

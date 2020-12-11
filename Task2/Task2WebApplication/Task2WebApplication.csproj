@@ -8,12 +8,20 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="5.5.6" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
         <PackageReference Include="Quartz" Version="3.2.3" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj" />
       <ProjectReference Include="..\Task2Infrastructure\Task2Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="ContractBookShop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\ContractBookShop\ContractBookShop\bin\Debug\netcoreapp3.1\ContractBookShop.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

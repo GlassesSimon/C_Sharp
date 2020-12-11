@@ -15,9 +15,12 @@ namespace Task2Infrastructure.EntityFramework.Configurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
             builder.Property(x => x.Genre).IsRequired();
-            builder.Property(x => x.Genre).HasMaxLength(255);
+            builder.Property(x => x.Genre).HasMaxLength(255);            
+            builder.Property(x => x.Title).IsRequired();
+            builder.Property(x => x.Title).HasMaxLength(255);
             builder.Property(x => x.Price).IsRequired();
-            builder.Property(x => x.Novelty).IsRequired();
+            builder.Property(x => x.IsNew).IsRequired();
+            builder.Property(x => x.DateDelivery).IsRequired();
         }
     }
 }
