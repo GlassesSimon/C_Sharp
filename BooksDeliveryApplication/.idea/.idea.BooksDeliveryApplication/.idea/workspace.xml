@@ -23,79 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5f67bbf-d236-4093-9ae4-3c6fbe9c357c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/BooksDeliveryApplication.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Consumer/BooksRequestConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/MassTransitConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Producer/BooksReceiveProducer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Producer/BooksResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Services/IServiceProxy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Services/ServiceBookProxy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BooksDeliveryApplication/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/ContractBookShop.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/ContractBookShop/ContractBookShop.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/ContractBookShop/IBooksRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ContractBookShop/ContractBookShop/IBooksResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/ApplicationServices/ApplicationServices.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2Infrastructure/EntityFramework/BankAccountContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2Infrastructure/EntityFramework/BankAccountContextDbContextFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2Infrastructure/EntityFramework/BankAccountContextDesignTimeFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2Infrastructure/EntityFramework/Configurations/BankAccountConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Consumer/BooksResponseConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/MassTransitConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Producer/BooksRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Producer/BooksRequestProducer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/.idea/.idea.Task2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/.idea/.idea.Task2/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/.idea/.idea.Task2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/.idea/.idea.Task2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/BankAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2/BankAccount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2/Book.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/BookShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/ApplicationServices/BookShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/Task2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2/Task2.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/bin/Debug/netcoreapp3.1/Task2.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2/bin/Debug/netcoreapp3.1/Task2.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Infrastructure/EntityFramework/Configurations/BookConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Infrastructure/EntityFramework/Configurations/BookConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Infrastructure/Migrations/20201118211349_AddBook.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Infrastructure/Migrations/20201118211349_AddBook.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Infrastructure/Migrations/20201118211415_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Infrastructure/Migrations/20201118211415_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Infrastructure/Migrations/BooksContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/BankAccountTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/BankAccountTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/BookShopTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/BookShopTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/BookTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/BookTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/LibraryTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/LibraryTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/Task2Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/Task2Test.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/bin/Debug/netcoreapp3.1/Task2Test.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/bin/Debug/netcoreapp3.1/Task2Test.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2Test/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2Test/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2WebApplication/Controllers/BooksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Controllers/BooksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2WebApplication/Services/IServiceProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Services/IServiceProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2WebApplication/Services/ServiceProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Services/ServiceProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/Task2WebApplication/Task2WebApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/Task2WebApplication/Task2WebApplication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BooksDeliveryApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BooksDeliveryApplication/Consumer/BooksRequestConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Consumer/BooksRequestConsumer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BooksDeliveryApplication/Services/ServiceBookProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BooksDeliveryApplication/Services/ServiceBookProxy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BooksDeliveryApplication/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BooksDeliveryApplication/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ContractBookShop/.idea/.idea.ContractBookShop/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,12 +43,13 @@
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/MassTransitConfiguration.cs" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/BooksDeliveryApplication.csproj" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/Consumer/BookRequestConsumer.cs" />
-        <option value="$PROJECT_DIR$/BooksDeliveryApplication/Consumer/BooksRequestConsumer.cs" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/Producer/BooksResponse.cs" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/Producer/BooksReceiveProducer.cs" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/Services/IServiceProxy.cs" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/Startup.cs" />
+        <option value="$PROJECT_DIR$/BooksDeliveryApplication/appsettings.json" />
         <option value="$PROJECT_DIR$/BooksDeliveryApplication/Services/ServiceBookProxy.cs" />
+        <option value="$PROJECT_DIR$/BooksDeliveryApplication/Consumer/BooksRequestConsumer.cs" />
       </list>
     </option>
   </component>
@@ -173,7 +106,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607675683315</updated>
       <workItem from="1607675685280" duration="1055000" />
-      <workItem from="1607677103566" duration="324000" />
+      <workItem from="1607677103566" duration="753000" />
+      <workItem from="1608026616772" duration="528000" />
     </task>
     <servers />
   </component>
@@ -192,6 +126,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

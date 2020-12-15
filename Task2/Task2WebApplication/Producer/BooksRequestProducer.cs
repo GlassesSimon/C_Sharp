@@ -15,7 +15,7 @@ namespace Task2WebApplication.Producer
             _configuration = configuration;
         }
 
-        public async Task SendMessage(int booksCount)
+        public async Task SendBookRequest(int booksCount)
         {
             var message = new BooksRequest(booksCount);
             

@@ -9,16 +9,18 @@ namespace Task2WebApplication.Jobs
     [DisallowConcurrentExecution]
     public class BookJob  : IJob
     {
-        private readonly IServiceProxy _serviceProxy;
+        private readonly BookShop _bookShop;
 
-        public BookJob(IServiceProxy dataService)
+        public BookJob(BookShop bookShop)
         {
-            _serviceProxy = dataService;
+            _bookShop = bookShop;
         }
-        public Task Execute(IJobExecutionContext context)
+        public async Task Execute(IJobExecutionContext context)
         {
-            _serviceProxy.GetAndSaveBooks();
-            return Task.CompletedTask;
+            if (_bookShop.NeedDelivery())
+            {
+                await _bookShop.DeliveryOrder(5);
+            }
         }
     }
 }

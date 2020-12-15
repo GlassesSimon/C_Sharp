@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Task2;
+using Task2Infrastructure.EntityFramework;
+using Task2WebApplication.Producer;
 
-namespace ApplicationServices
+namespace Task2WebApplication.Services
 { 
     public class BookShop
     {
@@ -14,9 +17,20 @@ namespace ApplicationServices
         public readonly BankAccount ShopBankAccount = new BankAccount(StartingBalance);
         private int Capacity {get;}
 
+        private readonly BankAccountContextDbContextFactory _bankAccountDdbContextFactory;
+        private readonly BooksContextDbContextFactory _booksDbContextFactory;
+        private readonly BooksRequestProducer _producer;
+        
         public BookShop(int capacity)
         {
             Capacity = capacity;
+        }
+        
+        public BookShop(BankAccountContextDbContextFactory bankAccountDdbContextFactory, BooksContextDbContextFactory booksDdbContextFactory, BooksRequestProducer producer)
+        {
+            _bankAccountDdbContextFactory = bankAccountDdbContextFactory;
+            _booksDbContextFactory = booksDdbContextFactory;
+            _producer = producer;
         }
 
         public void SellBook(int id) 
@@ -34,11 +48,6 @@ namespace ApplicationServices
             catch (Exception exception)
             {
                 Console.Write(exception.Message);
-            }
-
-            if (NeedDelivery())
-            {
-                DeliveryOrder();
             }
         }
         
@@ -86,7 +95,7 @@ namespace ApplicationServices
                         case "fiction":
                             book.ReducePrice(3);
                             break;
-                        case "adventures":
+                        case "adventure":
                             book.ReducePrice(7);
                             break;
                         case "encyclopedia":
@@ -112,7 +121,7 @@ namespace ApplicationServices
                         case "fiction":
                             book.RaisePrice(3);
                             break;
-                        case "adventures":
+                        case "adventure":
                             book.RaisePrice(7);
                             break;
                         case "encyclopedia":
@@ -127,9 +136,23 @@ namespace ApplicationServices
             }
         }
 
-        private static void DeliveryOrder()
+        public async Task DeliveryOrder(int count)
         {
+            await _producer.SendBookRequest(count);
             Console.Write("Need more books.\n");
+        }
+        
+        private void UpdateShopInDataBase()
+        {
+            using var booksContext = _booksDbContextFactory.GetContext();
+            booksContext.AddBooks(ShopLibrary.Stock);            
+            using var bankAccountContext = _bankAccountDdbContextFactory.GetContext();
+            bankAccountContext.AddBankAccount(ShopBankAccount);
+        }
+        
+        public List<Book> GetBooks()
+        {
+            return new List<Book>(ShopLibrary.Stock);
         }
     }
 }

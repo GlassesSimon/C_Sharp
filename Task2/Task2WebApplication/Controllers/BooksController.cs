@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Task2;
-using Task2Infrastructure.EntityFramework;
+using Task2WebApplication.Services;
 
 namespace Task2WebApplication.Controllers
 {
@@ -10,25 +9,22 @@ namespace Task2WebApplication.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly BooksContextDbContextFactory _dbContextFactory;
+        private readonly BookShop _bookShop;
 
-        public BooksController(BooksContextDbContextFactory dbContextFactory)
+        public BooksController(BookShop bookShop)
         {
-            _dbContextFactory = dbContextFactory;
+            _bookShop = bookShop;
         }
         [HttpGet]
-        public async Task<List<Book>> GetBooks()
+        public List<Book> GetBooks()
         {
-            await using var context = _dbContextFactory.GetContext();
-            return await context.GetBooks();
+            return _bookShop.GetBooks();
         }
         
-        [HttpPost]
-        public async Task AddBook([FromBody] Book book)
+        [HttpPut]
+        public void SaleBook([FromBody] Book book)
         {
-            await using var context = _dbContextFactory.GetContext();
-            context.AddBook(book);
-            await context.SaveChangesAsync();
+            _bookShop.SellBook(book.Id);
         }
     }
 }

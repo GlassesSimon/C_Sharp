@@ -26,9 +26,9 @@ namespace Task2Infrastructure.EntityFramework
             return await listBooks;
         }
 
-        public void AddBook(Book book)
+        public void AddBooks(List<Book> books)
         {
-            Set<Book>().Add(book);
+            Set<Book>().AddRange(books);
         }
     }
 }

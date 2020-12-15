@@ -10,7 +10,7 @@ namespace BooksDeliveryApplication.Consumer
         public Task Consume(ConsumeContext<IBooksRequest> context)
         {
             var message = context.Message;
-            Console.WriteLine($"Number of book is {message.BooksCount}");
+            Console.WriteLine($"Number of books is {message.BooksCount}");
             return Task.CompletedTask;
         }
     }
