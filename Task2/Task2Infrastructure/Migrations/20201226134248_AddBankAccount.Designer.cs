@@ -10,8 +10,8 @@ using Task2Infrastructure.EntityFramework;
 namespace Task2Infrastructure.Migrations
 {
     [DbContext(typeof(BankAccountContext))]
-    [Migration("20201211075531_Initial")]
-    partial class Initial
+    [Migration("20201226134248_AddBankAccount")]
+    partial class AddBankAccount
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -18,12 +18,11 @@ namespace Task2WebApplication.Consumer
             _bookShop = bookShop;
             _mapper = mapper;
         }
-        public Task Consume(ConsumeContext<IBooksResponse> context)
+        public async Task Consume(ConsumeContext<IBooksResponse> context)
         {
             var message = context.Message;
             var books = _mapper.Map<List<IBooksResponse.Book>, List<Book>>(message.Books);
-            _bookShop.ReceiveDelivery(books);
-            return Task.CompletedTask;
+            await _bookShop.ReceiveDelivery(books);
         }  
     }
 }

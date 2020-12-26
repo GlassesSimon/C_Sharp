@@ -19,10 +19,10 @@ namespace Task2Infrastructure.EntityFramework
             modelBuilder.HasDefaultSchema(DefaultSchemaName);
         }
 
-        public async Task<List<BankAccount>> GetBankAccount()
+        public async Task<BankAccount> GetBankAccount()
         {
             return await Set<BankAccount>()
-                .ToListAsync();
+                .FirstOrDefaultAsync();
         }
 
         public void AddBankAccount(BankAccount bankAccount)

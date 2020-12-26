@@ -32,6 +32,7 @@ namespace Task2WebApplication
         {
             services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSingleton(isp => new BooksContextDbContextFactory(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton(isp => new BankAccountContextDbContextFactory(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<HttpClient>();
             services.AddSingleton<BookShop>();
             services.AddControllers();

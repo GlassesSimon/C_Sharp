@@ -30,5 +30,10 @@ namespace Task2Infrastructure.EntityFramework
         {
             Set<Book>().AddRange(books);
         }
+
+        public void DeleteBook(Book book)
+        {
+            Set<Book>().Remove(book);
+        }
     }
 }

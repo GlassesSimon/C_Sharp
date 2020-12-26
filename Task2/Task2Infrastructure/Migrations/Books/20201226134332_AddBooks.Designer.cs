@@ -10,8 +10,8 @@ using Task2Infrastructure.EntityFramework;
 namespace Task2Infrastructure.Migrations.Books
 {
     [DbContext(typeof(BooksContext))]
-    [Migration("20201211075605_Initial")]
-    partial class Initial
+    [Migration("20201226134332_AddBooks")]
+    partial class AddBooks
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

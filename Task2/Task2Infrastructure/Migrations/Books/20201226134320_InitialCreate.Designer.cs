@@ -2,16 +2,18 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Task2Infrastructure.EntityFramework;
 
-namespace Task2Infrastructure.Migrations
+namespace Task2Infrastructure.Migrations.Books
 {
-    [DbContext(typeof(BankAccountContext))]
-    partial class BankAccountContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(BooksContext))]
+    [Migration("20201226134320_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
