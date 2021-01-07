@@ -13,12 +13,14 @@ namespace Task2
         public bool IsNew { get; private set; }
         public DateTime DateDelivery { get; private set; }
 
-        public Book(int id, string genre, double price, bool isNew)
+        public Book(int id, string title, string genre, double price, bool isNew, DateTime dateDelivery)
         {
             Id = id;
+            Title = title;
             Genre = genre;
             Price = price;
             IsNew = isNew;
+            DateDelivery = dateDelivery;
         }
         
         public void RaisePrice(int percent)

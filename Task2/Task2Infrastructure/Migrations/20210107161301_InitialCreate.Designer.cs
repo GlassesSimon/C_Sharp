@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Task2Infrastructure.EntityFramework;
 
-namespace Task2Infrastructure.Migrations.Books
+namespace Task2Infrastructure.Migrations
 {
-    [DbContext(typeof(BooksContext))]
-    [Migration("20201226134320_InitialCreate")]
+    [DbContext(typeof(BankAccountContext))]
+    [Migration("20210107161301_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,13 @@ namespace Task2Infrastructure.Migrations.Books
                     b.HasKey("Id");
 
                     b.ToTable("BankAccount","public");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Balance = 100000.0
+                        });
                 });
 
             modelBuilder.Entity("Task2.Book", b =>

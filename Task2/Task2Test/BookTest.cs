@@ -10,7 +10,7 @@ namespace Task2Test
         [Test]
         public void ReducePriceTest()
         {
-            var myBook = new Book(1, "fiction", 350, true);
+            var myBook = new Book(1, "A", "fiction", 350, true, DateTime.Now);
             myBook.ReducePrice(10);
             myBook.Price.Should().Be(315);
             
@@ -24,7 +24,7 @@ namespace Task2Test
         [Test]
         public void RaisePriceTest()
         {
-            var myBook = new Book(1, "fiction", 315, true);
+            var myBook = new Book(1, "A","fiction", 315, true, DateTime.Now);
             myBook.RaisePrice(10);
             myBook.Price.Should().Be(350); 
             

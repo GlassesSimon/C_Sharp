@@ -13,7 +13,7 @@ namespace Task2Test
         public void AddBookTest()
         {
             var myLibrary = new Library();
-            myLibrary.AddBooks(new List<Book> {new Book(1, "fiction", 350, true)});
+            myLibrary.AddBooks(new List<Book> {new Book(1, "A", "fiction", 350, true, DateTime.Now)});
             myLibrary.Stock.Count.Should().Be(1);
             myLibrary.Stock[0].Id.Should().Be(1);
             myLibrary.Stock[0].Price.Should().Be(350);
@@ -25,7 +25,7 @@ namespace Task2Test
         public void SuccessfulDeleteBookTest()
         {
             var myLibrary = new Library();
-            myLibrary.AddBooks(new List<Book> {new Book(1, "fiction", 350,true)});
+            myLibrary.AddBooks(new List<Book> {new Book(1, "A", "fiction", 350,true, DateTime.Now)});
             myLibrary.DeleteBook(1);
             myLibrary.Stock.Count.Should().Be(0);
             myLibrary.Stock.FirstOrDefault(b => b.Id == 1).Should().Be(null);

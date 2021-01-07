@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using ContractBookShop;
 using MassTransit;
 using Task2;
@@ -11,17 +10,17 @@ namespace Task2WebApplication.Consumer
     public class BooksResponseConsumer: IConsumer<IBooksResponse>
     {
         private readonly BookShop _bookShop;
-        private readonly Mapper _mapper;
 
-        public BooksResponseConsumer(BookShop bookShop, Mapper mapper)
+        public BooksResponseConsumer(BookShop bookShop)
         {
             _bookShop = bookShop;
-            _mapper = mapper;
         }
         public async Task Consume(ConsumeContext<IBooksResponse> context)
         {
             var message = context.Message;
-            var books = _mapper.Map<List<IBooksResponse.Book>, List<Book>>(message.Books);
+            
+            var books = message.Books.Select(book => new Book(0, book.Title, book.Genre, book.Price, book.IsNew, book.DateDelivery)).ToList();
+
             await _bookShop.ReceiveDelivery(books);
         }  
     }

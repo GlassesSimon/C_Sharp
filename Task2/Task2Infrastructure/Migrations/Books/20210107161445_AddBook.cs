@@ -2,7 +2,7 @@
 
 namespace Task2Infrastructure.Migrations.Books
 {
-    public partial class AddBooks : Migration
+    public partial class AddBook : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -14,7 +14,7 @@ namespace Task2WebApplication.Services
         public const int StartingCapacity = 100000;
 
         public readonly Library ShopLibrary = new Library();
-        public readonly BankAccount ShopBankAccount = new BankAccount(StartingBalance);
+        public readonly BankAccount ShopBankAccount;
         private int Capacity { get; } = StartingCapacity;
 
         private readonly BankAccountContextDbContextFactory _bankAccountDdbContextFactory;
@@ -24,6 +24,7 @@ namespace Task2WebApplication.Services
         public BookShop(int capacity)
         {
             Capacity = capacity;
+            ShopBankAccount = new BankAccount(StartingBalance);
         }
 
         public BookShop(BankAccountContextDbContextFactory bankAccountDdbContextFactory,
@@ -32,6 +33,9 @@ namespace Task2WebApplication.Services
             _bankAccountDdbContextFactory = bankAccountDdbContextFactory;
             _booksDbContextFactory = booksDdbContextFactory;
             _producer = producer;
+            
+            using var context = _booksDbContextFactory.GetContext();
+            ShopLibrary.AddBooks(context.GetBooks().Result);
         }
 
         public async Task SellBook(int id)
@@ -44,7 +48,6 @@ namespace Task2WebApplication.Services
                     throw new Exception("No book with this id.\n");
                 }
 
-                ShopBankAccount.Add(book.Price);
                 ShopLibrary.DeleteBook(id);
                 
                 await using var context = _booksDbContextFactory.GetContext();
@@ -78,11 +81,13 @@ namespace Task2WebApplication.Services
         {
             var deliveryCost = delivery.Sum(book => book.Price / 100 * 7);
 
-            if (deliveryCost < ShopBankAccount.Balance && Capacity >= delivery.Count + ShopLibrary.Stock.Count)
+            await using var contextBank = _bankAccountDdbContextFactory.GetContext();
+            var account = await contextBank.GetBankAccount();
+            if (deliveryCost < account.Balance && Capacity >= delivery.Count + ShopLibrary.Stock.Count)
             {
                 try
                 {
-                    ShopBankAccount.Sub(deliveryCost);
+                    account.Sub(deliveryCost);
                 }
                 catch (Exception exception)
                 {
@@ -95,8 +100,6 @@ namespace Task2WebApplication.Services
                 context.AddBooks(delivery);
                 await context.SaveChangesAsync();
                 
-                await using var contextBank = _bankAccountDdbContextFactory.GetContext();
-                var account = await contextBank.GetBankAccount();
                 account.Sub(deliveryCost);
                 await contextBank.SaveChangesAsync();
             }
