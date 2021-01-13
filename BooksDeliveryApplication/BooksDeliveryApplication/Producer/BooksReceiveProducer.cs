@@ -17,6 +17,7 @@ namespace BooksDeliveryApplication.Producer
             _configuration = configuration;
         }
 
+        #warning ну вообще же не правда в названии метода написана) 
         public async Task SentPaymentReceivedEvent(List<IBooksResponse.Book> books)
         {
             var message = new BooksResponse {Books = books};

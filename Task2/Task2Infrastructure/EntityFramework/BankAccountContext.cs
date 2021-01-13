@@ -24,6 +24,7 @@ namespace Task2Infrastructure.EntityFramework
                 .FirstOrDefaultAsync();
         }
 
+        #warning неиспользуемый метод :) 
         public void AddBankAccount(BankAccount bankAccount)
         {
             Set<BankAccount>().Add(bankAccount);
