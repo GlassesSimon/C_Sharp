@@ -19,9 +19,9 @@ namespace Task2
             Stock.Remove(book);
         }
 
-        public void AddBook(Book book)
+        public void AddBooks(List<Book> books)
         {
-            Stock.Add(book);
+            Stock.AddRange(books);
         }
     }
 }

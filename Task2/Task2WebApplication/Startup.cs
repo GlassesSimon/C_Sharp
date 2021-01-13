@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Net.Http;
-using AutoMapper;
-using ContractBookShop;
 using MassTransit;
+using MassTransit.AspNetCoreIntegration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Task2;
 using Task2Infrastructure.EntityFramework;
 using Task2WebApplication.Bootstrap;
 using Task2WebApplication.Consumer;
 using Task2WebApplication.Producer;
-using MassTransit.AspNetCoreIntegration;
 using Task2WebApplication.Services;
 
 namespace Task2WebApplication
@@ -32,18 +29,13 @@ namespace Task2WebApplication
         {
             services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSingleton(isp => new BooksContextDbContextFactory(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton(isp => new BankAccountContextDbContextFactory(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<HttpClient>();
             services.AddSingleton<BookShop>();
             services.AddControllers();
             services.AddBackgroundJobs();
             services.AddSingleton<BooksRequestProducer>();
             
-            var configuration = new MapperConfiguration(c =>
-            {
-                c.AllowNullCollections = true;
-                c.CreateMap<IBooksResponse.Book, Book>();
-            });
-            services.AddSingleton(new Mapper(configuration));
             services.AddMassTransit(isp =>
                 {
                     var hostConfig = new MassTransitConfiguration();

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Task2;
 
@@ -19,10 +18,10 @@ namespace Task2Infrastructure.EntityFramework
             modelBuilder.HasDefaultSchema(DefaultSchemaName);
         }
 
-        public async Task<List<BankAccount>> GetBankAccount()
+        public async Task<BankAccount> GetBankAccount()
         {
             return await Set<BankAccount>()
-                .ToListAsync();
+                .FirstOrDefaultAsync();
         }
 
         public void AddBankAccount(BankAccount bankAccount)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Task2;
 using Task2WebApplication.Services;
@@ -10,7 +11,7 @@ namespace Task2WebApplication.Controllers
     public class BooksController : ControllerBase
     {
         private readonly BookShop _bookShop;
-
+        
         public BooksController(BookShop bookShop)
         {
             _bookShop = bookShop;
@@ -22,9 +23,23 @@ namespace Task2WebApplication.Controllers
         }
         
         [HttpPut]
-        public void SaleBook([FromBody] Book book)
+        public async Task SaleBook([FromBody] Book book)
         {
-            _bookShop.SellBook(book.Id);
+            await _bookShop.SellBook(book.Id);
+        }        
+        
+        [HttpPut]
+        [Route("startSale")]
+        public void StartSale()
+        {
+            _bookShop.SaleByGenre();
+        }        
+        
+        [HttpPut]
+        [Route("stopSale")]
+        public void StopSale()
+        {
+            _bookShop.CancelSaleByGenre();
         }
     }
 }

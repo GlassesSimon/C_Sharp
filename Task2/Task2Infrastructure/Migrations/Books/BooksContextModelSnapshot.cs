@@ -33,6 +33,13 @@ namespace Task2Infrastructure.Migrations.Books
                     b.HasKey("Id");
 
                     b.ToTable("BankAccount","public");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Balance = 100000.0
+                        });
                 });
 
             modelBuilder.Entity("Task2.Book", b =>

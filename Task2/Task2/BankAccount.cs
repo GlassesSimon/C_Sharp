@@ -6,11 +6,17 @@ namespace Task2
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class BankAccount
     {
-        public int Id { get; }
+        public int Id { get; private set; }
         public double Balance { get; private set; }
 
         public BankAccount(double balance)
         {
+            Balance = balance;
+        }        
+        
+        public BankAccount(int id, double balance)
+        {
+            Id = id;
             Balance = balance;
         }
 

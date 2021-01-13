@@ -10,8 +10,8 @@ using Task2Infrastructure.EntityFramework;
 namespace Task2Infrastructure.Migrations.Books
 {
     [DbContext(typeof(BooksContext))]
-    [Migration("20201211075605_Initial")]
-    partial class Initial
+    [Migration("20210107161343_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,13 @@ namespace Task2Infrastructure.Migrations.Books
                     b.HasKey("Id");
 
                     b.ToTable("BankAccount","public");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Balance = 100000.0
+                        });
                 });
 
             modelBuilder.Entity("Task2.Book", b =>
