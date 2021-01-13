@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContractBookShop;
 using Task2;
 using Task2Infrastructure.EntityFramework;
 using Task2WebApplication.Producer;
@@ -77,8 +78,10 @@ namespace Task2WebApplication.Services
             return ShopLibrary.Stock.Count <= Capacity / 10;
         }
 
-        public async Task ReceiveDelivery(List<Book> delivery)
+        public async Task ReceiveDelivery(List<IBooksResponse.Book> booksFromMessage)
         {
+            var delivery = booksFromMessage.Select(book => new Book(0, book.Title, book.Genre, book.Price, book.IsNew, book.DateDelivery)).ToList();
+
             var deliveryCost = delivery.Sum(book => book.Price / 100 * 7);
 
             await using var contextBank = _bankAccountDdbContextFactory.GetContext();

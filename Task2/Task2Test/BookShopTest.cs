@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using ContractBookShop;
 using FluentAssertions;
 using NUnit.Framework;
-using Task2;
 using Task2WebApplication.Services;
 
 namespace Task2Test
@@ -14,7 +14,7 @@ namespace Task2Test
         public void UnsuccessfulDeliveryTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            var delivery = new List<Book> {new Book(1, "A", "fiction", 5000000, false, DateTime.Now)};
+            var delivery = new List<IBooksResponse.Book> {new IBooksResponse.Book{ Id = 1, Title = "A", Genre = "fiction", Price = 5000000, IsNew = false, DateDelivery = DateTime.Now}};
             myBookShop.ReceiveDelivery(delivery);
             myBookShop.ShopBankAccount.Balance.Should().Be(100000);
             myBookShop.ShopLibrary.Stock.Count.Should().Be(0);
@@ -24,7 +24,8 @@ namespace Task2Test
         public void NeedDeliveryTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            var delivery = new List<Book> {new Book(1, "A", "fiction", 350, false, DateTime.Now), new Book(2, "B", "encyclopedia", 450, true, DateTime.Now)};
+            var delivery = new List<IBooksResponse.Book> {new IBooksResponse.Book{ Id = 1, Title = "A", Genre = "fiction", Price = 5000000, IsNew = false, DateDelivery = DateTime.Now}, 
+                new IBooksResponse.Book{ Id = 2, Title = "B", Genre = "encyclopedia", Price = 450, IsNew = true, DateDelivery = DateTime.Now}};
             myBookShop.ReceiveDelivery(delivery);
             myBookShop.NeedDelivery().Should().Be(true);
         }        
@@ -33,7 +34,8 @@ namespace Task2Test
         public void UnsuccessfulBookSoldTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            var delivery = new List<Book> {new Book(1, "A", "fiction", 350, false, DateTime.Now), new Book(2, "B","encyclopedia", 450, true, DateTime.Now)};
+            var delivery = new List<IBooksResponse.Book> {new IBooksResponse.Book{ Id = 1, Title = "A", Genre = "fiction", Price = 350, IsNew = false, DateDelivery = DateTime.Now}, 
+                new IBooksResponse.Book{ Id = 2, Title = "B", Genre = "encyclopedia", Price = 450, IsNew = true, DateDelivery = DateTime.Now}};
             myBookShop.ReceiveDelivery(delivery);
             SellBookTest(myBookShop, 3, "No book with this id.\n");
         }
@@ -42,7 +44,9 @@ namespace Task2Test
         public void SuccessfulBookSoldTest()
         {
             var myBookShop = new BookShop(BookShop.StartingCapacity);
-            var delivery = new List<Book> {new Book(1,"A", "fiction", 350, false, DateTime.Now), new Book(2, "B", "encyclopedia", 450, true, DateTime.Now), new Book(3, "C", "fiction", 500, false, DateTime.Now)};
+            var delivery = new List<IBooksResponse.Book> {new IBooksResponse.Book{ Id = 1, Title = "A", Genre = "fiction", Price = 350, IsNew = false, DateDelivery = DateTime.Now}, 
+                new IBooksResponse.Book{ Id = 2, Title = "B", Genre = "encyclopedia", Price = 450, IsNew = true, DateDelivery = DateTime.Now}, 
+                new IBooksResponse.Book{ Id = 3, Title = "C", Genre = "fiction", Price = 500, IsNew = false, DateDelivery = DateTime.Now}};
             myBookShop.ReceiveDelivery(delivery);
         }
 

@@ -17,7 +17,7 @@ namespace BooksDeliveryApplication.Producer
             _configuration = configuration;
         }
 
-        public async Task SentPaymentReceivedEvent(List<IBooksResponse.Book> books)
+        public async Task SendBooksToQueue(List<IBooksResponse.Book> books)
         {
             var message = new BooksResponse {Books = books};
             var hostConfig = new MassTransitConfiguration();

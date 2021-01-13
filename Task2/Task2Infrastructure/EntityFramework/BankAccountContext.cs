@@ -23,10 +23,5 @@ namespace Task2Infrastructure.EntityFramework
             return await Set<BankAccount>()
                 .FirstOrDefaultAsync();
         }
-
-        public void AddBankAccount(BankAccount bankAccount)
-        {
-            Set<BankAccount>().Add(bankAccount);
-        }
     }
 }

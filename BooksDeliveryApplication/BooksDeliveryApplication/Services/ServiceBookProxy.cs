@@ -23,7 +23,7 @@ namespace BooksDeliveryApplication.Services
             var response = await _httpClient.GetAsync($"{Url}/{booksCount}");
             var json = await response.Content.ReadAsStringAsync();
             var books = JsonConvert.DeserializeObject<List<IBooksResponse.Book>>(json);
-            await _booksReceiveProducer.SentPaymentReceivedEvent(books);
+            await _booksReceiveProducer.SendBooksToQueue(books);
         }
     }
 }
