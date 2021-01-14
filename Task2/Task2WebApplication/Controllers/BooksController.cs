@@ -23,9 +23,10 @@ namespace Task2WebApplication.Controllers
         }
         
         [HttpPut]
-        public async Task SaleBook([FromBody] Book book)
+        [Route("{id}")]
+        public async Task SaleBook(int id)
         {
-            await _bookShop.SellBook(book.Id);
+            await _bookShop.SellBook(id);
         }        
         
         [HttpPut]

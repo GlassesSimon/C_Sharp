@@ -29,7 +29,7 @@ namespace Task2
             {
                 throw new Exception("Percentage is incorrect.\n");
             }
-            Price = Price / (100 - percent) * 100;
+            Price = (int) (Price / (100 - percent) * 100);
         }
 
         public void ReducePrice(int percent)
